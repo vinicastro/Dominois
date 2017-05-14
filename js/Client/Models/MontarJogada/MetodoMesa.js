@@ -1,11 +1,19 @@
 var MetodoMesa = function(jogada) {
     
-    var _metodo = function(jogada) {
-        jogada.mesa.pedrasJogadas.push(jogada.pedra);
-        
-        if (jogada.valorEsquerdaMesa != null) jogada.mesa.valorEsquerda = jogada.valorEsquerdaMesa;		
-        if (jogada.valorDireitaMesa != null) jogada.mesa.valorDireita = jogada.valorDireitaMesa;
+	if (jogada.moveType == MoveType.FirstDomino) {
+        jogada.MetodoMesa = jogada.mesa.sprite.JogarPrimeiraPedra;
+        return jogada;
     }
-    jogada.MetodoMesa = _metodo;
+    
+    if (jogada.moveType == MoveType.LeftSide) {
+        jogada.MetodoMesa = jogada.mesa.sprite.JogarPedraEsquerda;
+        return jogada;
+    }
+    
+    if (jogada.moveType == MoveType.RightSide) {
+        jogada.MetodoMesa = jogada.mesa.sprite.JogarPedraDireita;
+        return jogada;
+    }
+	
     return jogada;
 }

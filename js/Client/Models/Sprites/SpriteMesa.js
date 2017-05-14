@@ -13,12 +13,56 @@ var SpriteMesa = function() {
         largura: 700
     };
     
-    this.posicaoPedraInicial = { x: 330, y: 220 };
-    this.posicaoPedraEsquerda = JSON.parse(JSON.stringify(self.posicaoPedraInicial));
-    this.posicaoPedraDireita = JSON.parse(JSON.stringify(self.posicaoPedraInicial));
+	var CalcularPosicaoPedra = function(jogada) {
+		return { x: CalcularPosicaoHorizontal(jogada), y: CalcularPosicaoVertical(jogada) }
+	}
+	
+	var CalcularPosicaoHorizontalJogadaAtual = function(jogada) {
     
+		if (jogada.rotacaoSprite == RotacaoSprite.esquerda) {
+			jogada.desvioSprite.y = jogada.pedra.sprite.largura * 1.5;
+			jogada.desvioSprite.x = 0;
+		}
+		
+		if (jogada.rotacaoSprite == RotacaoSprite.direita) {
+			jogada.desvioSprite.y = jogada.pedra.sprite.largura/ 2;
+			jogada.desvioSprite.x = jogada.pedra.sprite.altura;
+		}
+    
+    return jogada;
+
+	}
+	
+	var VerificarLimiteMesa = function(jogada) {
+		// TODO:
+	}
+	
+	var VerificarLimiteMesaDireita = function(jogada) {
+		// TODO:
+	}
+	
+	var VerificarLimiteMesaEsquerda = function(jogada) {
+		// TODO:
+	}
+	
+	var VerificarLimiteMesaSuperior = function(jogada) {
+		// TODO:
+	}
+	
+	var VerificarLimiteMesaInferior = function(jogada) {
+		// TODO: 
+	}
+	
+	var CalcularPosicaoHorizontal = function(jogada) {
+		
+	}
+	
+	var CalcularPosicaoVertical = function(jogada) {
+		
+	}
+	
     this.JogarPrimeiraPedra = function(jogada) {
-        self.JogarPedra(jogada, self.AplicarDesvioSprite(jogada, self.posicaoPedraInicial));
+        self.JogarPedra(jogada, { x: 330, y: 250 });
     }
 
     this.JogarPedraEsquerda = function(jogada) {		

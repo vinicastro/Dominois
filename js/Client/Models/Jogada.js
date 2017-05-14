@@ -5,15 +5,16 @@ var Jogada = function(jogada) {
     
     this.valorEsquerdaMesa = jogada.valorEsquerdaMesa;
     this.valorDireitaMesa = jogada.valorDireitaMesa;
-    this.tamanhoHorizontal = jogada.tamanhoHorizontal;
     this.rotacaoSprite = jogada.rotacaoSprite;
-	this.desvioSprite = jogada.desvioSprite;
+	this.posicao = jogada.posicao;
+	
+	this.jogadaAnterior = jogada.jogadaAnterior;
     
     this.MetodoMesa = jogada.MetodoMesa;
     this.MetodoSpriteMesa = jogada.MetodoSpriteMesa;
 }
 
 Jogada.prototype.EfetuarJogada = function() {
+	this.MetodoSpriteMesa(this);
     this.MetodoMesa(this);
-    this.MetodoSpriteMesa(this);
 }

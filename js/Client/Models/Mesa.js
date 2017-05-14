@@ -3,11 +3,37 @@
 // Require MontarJogada/*
 
 var Mesa = function() {
+	var self = this;
+	
     this.sprite = new SpriteMesa();
-    
-    this.pedrasJogadas = [];
-    this.valorEsquerda;
-    this.valorDireita;
+    this.ultimaJogada = null;
+	
+	this.valorPonta = {
+		esquerda: null,
+		direita: null
+	}
+	
+	this.AtualizarValorPonta = function(jogada) {		
+		if (jogada.valorEsquerdaMesa != null) {
+			self.valorPonta.esquerda = jogada.valorEsquerdaMesa;
+		}
+        if (jogada.valorDireitaMesa != null) {
+			self.valorPonta.direita = jogada.valorDireitaMesa;
+		}
+	}
+	
+	this.JogarPrimeiraPedra = function(jogada) {
+		self.pedras.esquerda.push(jogada.pedra);
+		self.pedras.direita.push(jogada.pedra);
+	}
+
+	this.JogarPedraEsquerda = function(jogada) {		
+		self.pedras.esquerda.push(jogada.pedra);
+	}
+
+	this.JogarPedraDireita = function(jogada) {
+		self.pedras.direita.push(jogada.pedra);
+	}
 }
 
 Mesa.prototype.VerificarMovimentosPossiveisParaPedra = function(pedra) {
@@ -37,9 +63,9 @@ Mesa.prototype.VerificarMovimentosPossiveisParaPedra = function(pedra) {
 }
 
 Mesa.prototype.JogarPedra = function(pedra, moveType) {
-
-    var baseJogada = {pedra: pedra, moveType: moveType, mesa: this };
-    var jogada = new Jogada(MetodoSpriteMesa(MetodoMesa(TamanhoHorizontal(DesvioSprite(RotacaoPedra(ValoresMesa(baseJogada)))))));
+    var baseJogada = {pedra: pedra, moveType: moveType, mesa: this, jogadaAnterior: this.ultimaJogada };
+    var jogada = new Jogada(MetodoSpriteMesa(MetodoMesa(RotacaoPedra(ValoresMesa(baseJogada)))));
     
     jogada.EfetuarJogada();
+	this.ultimaJogada = jogada;
 }
