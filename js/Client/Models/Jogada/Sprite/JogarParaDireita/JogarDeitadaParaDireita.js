@@ -1,10 +1,10 @@
-var JogarDeitadaParaEsquerda = function() {}
+var JogarDeitadaParaDireita = function() {}
 
-JogarDeitadaParaEsquerda.prototype.Jogar(pedra) {
+JogarDeitadaParaDireita.prototype.Jogar(pedra) {
   return new JogadaSprite
   (
-    pedra.sprite.spritePhaser.position.x - ultimaPedra.sprite.largura,
-    pedra.sprite.spritePhaser.position.y - ultimaPedra.sprite.largura,
+    pedra.sprite.spritePhaser.position.x + pedra.sprite.altura,
+    pedra.sprite.spritePhaser.position.y - pedra.sprite.largura,
     Rotacao.NaoRotacionar
   );
 }
