@@ -1,10 +1,10 @@
 var JogarDeitadaParaEsquerda = function() {}
 
-JogarDeitadaParaEsquerda.prototype.Jogar(ultimaPedra) {
-  return new Posicao
+JogarDeitadaParaEsquerda.prototype.Jogar(pedra) {
+  return new JogadaSprite
   (
-    ultimaPedra.sprite.spritePhaser.position.x - ultimaPedra.sprite.largura,
-    ultimaPedra.sprite.spritePhaser.position.y - ultimaPedra.sprite.largura,
-    Rotacao.Zero
+    pedra.sprite.spritePhaser.position.x - ultimaPedra.sprite.largura,
+    pedra.sprite.spritePhaser.position.y - ultimaPedra.sprite.largura,
+    Rotacao.NaoRotacionar
   );
 }
