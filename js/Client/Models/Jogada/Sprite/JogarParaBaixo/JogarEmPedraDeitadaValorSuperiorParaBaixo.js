@@ -1,10 +1,10 @@
-var JogarEmPedraDeitadaValorSuperiorParaDireita = function(){}
+var JogarEmPedraDeitadaValorSuperiorParaBaixo = function() {}
 
-JogarEmPedraDeitadaValorSuperiorParaDireita.prototype.Jogar(pedra) {
+JogarEmPedraDeitadaValorSuperiorParaBaixo.prototype.Jogar(pedra) {
   return new JogadaSprite
   (
-    pedra.sprite.spritePhaser.position.x + pedra.sprite.largura,
-    pedra.speite.spritePhaser.position.y + (2 * pedra.sprite.largura),
-    RotacaoSprite.DuzentosESetenta
+    pedra.sprite.spritePhaser.position.x + (pedra.sprite.altura/2),
+    pedra.sprite.spritePhaser.position.y + (pedra.sprite.largura),
+    Rotacao.NaoRotacionar
   );
 }
